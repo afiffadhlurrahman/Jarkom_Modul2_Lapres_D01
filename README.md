@@ -24,7 +24,7 @@ zone "semerud01.com" {
 `service bind9 restart`
 - Kemudian atur nameserver pada client (contoh pada UML GRESIK)</br>
 *gambar 
-![gambar GRESIK_resolve_conf](img/GRESIK_resolve_conf)
+![gambar GRESIK_resolve_conf](img/GRESIK_resolv_conf.PNG)
 - Testing (UML GRESIK)</br>
 *gambar hasil ping di gresik
 
@@ -55,8 +55,7 @@ zone "79.151.10.in-addr.arpa" {
 ```
 - Jalankan perintah `cp /etc/bind/db.local /etc/bind/jarkom/79.151.10.in-addr.arpa` pada UML MALANG
 - Perhatikan dan edit sesuai pada gambar 
-*gambar 
-![gambar MALANG_addr_arpa](img/MALANG_addr_arpa)
+![gambar MALANG_addr_arpa](img/MALANG_addr_arpa.PNG)
 - Lakukan perintah `service bind9 restart` pada UML MALANG
 - Jalankan perintah `host -t PTR 10.151.79.20`
 *hasil testing
@@ -84,7 +83,6 @@ zone "semerud01.com" {
 - Lakukan perintah `service bind9 restart` pada UML MOJOKERTO
 - Pada server MALANG matikan bind9 dengan perintah `service bind9 stop`
 - Pada client GRESIK pastikan pengaturan nameserver mengarah ke IP MALANG dan IP MOJOKERTO
-*gambar 
 ![gambar GRESIK_resolv_conf.PNG](img/GRESIK_resolv_conf.PNG)
 - Lakukan ping ke semerud01.com pada client GRESIK. 
 *gambar hasil ping
