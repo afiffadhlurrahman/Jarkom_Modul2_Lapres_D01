@@ -86,7 +86,7 @@ zone "semerud01.com" {
 *gambar hasil ping
 
 **6. Membuat subdomain dengan alamat http://gunung.semeruyyy.pw yang didelegasikan pada server MOJOKERTO dan mengarah ke IP Server PROBOLINGGO.**
-- Edit file dengan menggunakan perintah `nano /etc/bind/jarkom/semerud01.com`, perhatikan record NS pastikan hal tersebut sudah sesuai (UML MALANG)
+- Edit file dengan menggunakan perintah `nano /etc/bind/jarkom/semerud01.com`, perhatikan record NS pastikan hal tersebut sudah sesuai (UML MALANG) </br>
 ![gambar MALANG_semerud01_pw.PNG ](img/MALANG_semerud01_pw.PNG)
 - Edit file dengan menggunakan perintah `nano /etc/bind/named.conf.options`
 //- Kemudian comment `dnssec-validation auto;` dan tambahkan baris berikut pada //`/etc/bind/named.conf.options`
