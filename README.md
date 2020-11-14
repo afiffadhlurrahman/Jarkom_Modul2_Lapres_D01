@@ -52,9 +52,9 @@ zone "79.151.10.in-addr.arpa" {
 };
 ```
 - Jalankan perintah `cp /etc/bind/db.local /etc/bind/jarkom/79.151.10.in-addr.arpa` pada UML MALANG
-- Perhatikan dan edit sesuai pada gambar 
+- Perhatikan dan edit sesuai pada gambar </br>
 ![gambar MALANG_addr_arpa](img/MALANG_addr_arpa.PNG)
-- Lakukan perintah `service bind9 restart` pada UML MALANG
+- Lakukan perintah `service bind9 restart` pada UML MALANG </br>
 - Jalankan perintah `host -t PTR 10.151.79.20`
 *hasil testing
 
