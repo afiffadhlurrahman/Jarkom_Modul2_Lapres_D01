@@ -142,7 +142,7 @@ zone "semerud01.pw" {
 **12. Untuk mengatasi HTTP Error code 404, disediakan file 404.html pada folder /errors untuk mengganti error default 404 dari Apache.**
 - Lakukan perintah `nano /etc/apache2/sites-available/penanjakan.semerud01.pw` </br>
 - Tambahkan konfigurasi `ErrorDocument 404 /errors/404.html`</br>
-*gambar
+![gambar no12_s1](img/no12_s1.PNG)
 - Lakukan perintah `service apache2 restart`</br>
 - Testing</br>
 ![gambar testing](img/no12.PNG)
@@ -151,34 +151,35 @@ zone "semerud01.pw" {
 
 **14. Sedangkan web http://naik.gunung.semeruyyy.pw sudah bisa diakses hanya dengan menggunakan port 8888. DocumentRoot web berada pada /var/www/naik.gunung.semeruyyy.pw.**
 - Lakukan perintah `nano /etc/apache2/sites-available/naik.gunung.semerud01.pw` edit sesuai gambar dibawah ini</br>
-*gambar
+![gambar no14_s1](img/no14_s1.PNG)
 - Lakukan `service apache2 restart`</br>
 - Download dengan perintah `wget 10.151.36.202/naik.gunung.semeru.pw.zip` disimpan di directory /var/www/naik.gunung.semerud01.pw</br>
 - Aktifkan port dengan edit file dengan perintah `nano /etc/apache2/ports.conf` menjadi Listen 8888</br>
-*gambar
+![gambar no14_s2](img/no14_s2.PNG)
 - Aktifkan dengan perintah `a2ensite naik.gunung.semerud01.pw`, kemudian restart apache dengan perintah `service apache2 restart`</br>
 - Testing</br>
 ![gambar testing](img/no14_15.PNG)
 
 **15. membuat web http://naik.gunung.semeruyyy.pw agar diberi autentikasi password dengan username “semeru” dan password “kuynaikgunung” supaya aman dan tidak sembarang orang bisa mengaksesnya.**
 - Lakukan perintah `nano /etc/apache2/sites-available/naik.gunung.semerud01.pw` dan setting AuthType, AuthName, AuthUserFile, Require valid-user </br>
-*gambar
+![gambar no15_s1](img/no15_s1.PNG)
 - lakukan perintah `htpasswd -c /etc/apache2/.htpasswd semeru` pada UML PROBOLINGGO dengan username = `semeru` dan password = `kuynaikgunung` </br>
-*gambar
+![gambar no15_s2](img/no15_s2.PNG)
 - Testing</br>
 ![gambar testing](img/no14_15.PNG)
 
 **16. Karena dirasa kurang profesional, maka setiap Bibah mengunjungi IP PROBOLINGGO akan dialihkan secara otomatis ke http://semeruyyy.pw.** </br>
 - Lakukan perintah `nano /etc/apache2/sites-available/default`, lalu setting RewriteEngine, RewriteCond, RewriteCond, RewriteRule nya</br>
-*gambar
+![gambar no16_s1](img/no16_s1.PNG)
 - Testing, ketika akses IP PROBOLINGGO maka akan dialihkan semerud01.pw</br>
 ![gambar testing](img/no16.PNG)
 
 **17. Karena pengunjung pada /var/www/penanjakan.semeruyyy.pw/public/images sangat banyak maka semua request gambar yang memiliki substring “semeru” akan diarahkan menuju semeru.jpg** </br>
 - kita akan membuat file .htaccess dengan perintah `nano /var/www/penanjakan.semerud01.pw/.htaccess`</br>
-*gambar
+![gambar no17_s1](img/no17_s1.PNG)
 - Kemudian pada file /etc/apache2/sites-available/penanjakan.semerud01.pw juga akan dimodifikasi agar file .htaccess dapat berjalan, dengan menambahkan `AllowOverride All`</br>
-*gambar
-- Testing</br>
+![gambar no17_s2](img/no17_s2.PNG)
+- Testing 1</br>
 ![gambar testing](img/no17a.PNG)
+- Testing 2</br>
 ![gambar testing](img/no17b.PNG)
