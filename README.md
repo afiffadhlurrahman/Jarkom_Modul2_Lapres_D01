@@ -1,4 +1,6 @@
-Modul 2 : DNS dan Web Server
+## Modul 2 : DNS dan Web Server
+
+### No yang blm : 8,9,10,11,13
 
 Nama anggota :
 - 05111840000093 Muhammad Afif Fadhlurrahman 
@@ -123,3 +125,60 @@ zone "semerud01.pw" {
 - Lalu lakukan perintah `service bind9 restart` pada UML MOJOKERTO
 - Testing ping naik.gunung.semerud01.pw dari UML GRESIK </br>
 ![gambar hasil ping di gresik](img/ping_gresik_no7.PNG)
+
+**8. Domain http://semeruyyy.pw memiliki DocumentRoot pada /var/www/semeruyyy.pw. Awalnya web dapat diakses menggunakan alamat http://semeruyyy.pw/index.php/home.**
+
+**9. Mengaktifkan mod rewrite agar urlnya menjadi http://semeruyyy.pw/home.**
+
+**10. Web http://penanjakan.semeruyyy.pw akan digunakan untuk menyimpan assets file yang memiliki DocumentRoot pada /var/www/penanjakan.semeruyyy.pw dan memiliki struktur folder sebagai berikut:** </br>
+/var/www/penanjakan.semeruyyy.pw
+- /public/javascripts
+- /public/css
+- /public/images
+- /errors
+
+**11. Pada folder /public dibolehkan directory listing namun untuk folder yang berada di dalamnya tidak dibolehkan.**
+
+**12. Untuk mengatasi HTTP Error code 404, disediakan file 404.html pada folder /errors untuk mengganti error default 404 dari Apache.**
+- Lakukan perintah `nano /etc/apache2/sites-available/penanjakan.semerud01.pw` </br>
+- Tambahkan konfigurasi `ErrorDocument 404 /errors/404.html`</br>
+*gambar
+- Lakukan perintah `service apache2 restart`</br>
+- Testing</br>
+![gambar testing](img/no12.PNG)
+
+**13. Untuk mengakses file assets javascript awalnya harus menggunakan url http://penanjakan.semeruyyy.pw/public/javascripts. Karena terlalu panjang maka dibuatkan konfigurasi virtual host agar ketika mengakses file assets menjadi http://penanjakan.semeruyyy.pw/js.**
+
+**14. Sedangkan web http://naik.gunung.semeruyyy.pw sudah bisa diakses hanya dengan menggunakan port 8888. DocumentRoot web berada pada /var/www/naik.gunung.semeruyyy.pw.**
+- Lakukan perintah `nano /etc/apache2/sites-available/naik.gunung.semerud01.pw` edit sesuai gambar dibawah ini</br>
+*gambar
+- Lakukan `service apache2 restart`</br>
+- Download dengan perintah `wget 10.151.36.202/naik.gunung.semeru.pw.zip` disimpan di directory /var/www/naik.gunung.semerud01.pw</br>
+- Aktifkan port dengan edit file dengan perintah `nano /etc/apache2/ports.conf` menjadi Listen 8888</br>
+*gambar
+- Aktifkan dengan perintah `a2ensite naik.gunung.semerud01.pw`, kemudian restart apache dengan perintah `service apache2 restart`</br>
+- Testing</br>
+![gambar testing](img/no14_15.PNG)
+
+**15. membuat web http://naik.gunung.semeruyyy.pw agar diberi autentikasi password dengan username “semeru” dan password “kuynaikgunung” supaya aman dan tidak sembarang orang bisa mengaksesnya.**
+- Lakukan perintah `nano /etc/apache2/sites-available/naik.gunung.semerud01.pw` dan setting AuthType, AuthName, AuthUserFile, Require valid-user </br>
+*gambar
+- lakukan perintah `htpasswd -c /etc/apache2/.htpasswd semeru` pada UML PROBOLINGGO dengan username = `semeru` dan password = `kuynaikgunung` </br>
+*gambar
+- Testing</br>
+![gambar testing](img/no14_15.PNG)
+
+**16. Karena dirasa kurang profesional, maka setiap Bibah mengunjungi IP PROBOLINGGO akan dialihkan secara otomatis ke http://semeruyyy.pw.** </br>
+- Lakukan perintah `nano /etc/apache2/sites-available/default`, lalu setting RewriteEngine, RewriteCond, RewriteCond, RewriteRule nya</br>
+*gambar
+- Testing, ketika akses IP PROBOLINGGO maka akan dialihkan semerud01.pw</br>
+![gambar testing](img/no16.PNG)
+
+**17. Karena pengunjung pada /var/www/penanjakan.semeruyyy.pw/public/images sangat banyak maka semua request gambar yang memiliki substring “semeru” akan diarahkan menuju semeru.jpg** </br>
+- kita akan membuat file .htaccess dengan perintah `nano /var/www/penanjakan.semerud01.pw/.htaccess`</br>
+*gambar
+- Kemudian pada file /etc/apache2/sites-available/penanjakan.semerud01.pw juga akan dimodifikasi agar file .htaccess dapat berjalan, dengan menambahkan `AllowOverride All`</br>
+*gambar
+- Testing</br>
+![gambar testing](img/no17a.PNG)
+![gambar testing](img/no17b.PNG)
