@@ -1,7 +1,5 @@
 ## Modul 2 : DNS dan Web Server
 
-### No yang blm : 8,9,10,11,13
-
 Nama anggota :
 - 05111840000093 Muhammad Afif Fadhlurrahman 
 - 05111740000091 Affan Ahsanul Habib
@@ -128,22 +126,22 @@ zone "semerud01.pw" {
 
 **8. Domain http://semeruyyy.pw memiliki DocumentRoot pada /var/www/semeruyyy.pw. Awalnya web dapat diakses menggunakan alamat http://semeruyyy.pw/index.php/home.**</br>
 - Lakukan perintah `nano /etc/apache2/sites-available/semerud01.pw` edit sesuai gambar dibawah ini</br>
-![gambar no8_1](img/no8_1.PNG)
+![gambar no8_1](img/no8_1.png)
 - Download dengan perintah `wget 10.151.36.202/semeru.pw.zip` disimpan di directory /var/www/semerud01.pw</br>
 - Aktifkan dengan perintah `a2ensite semerud01.pw`, kemudian restart apache dengan perintah `service apache2 restart`</br>
 - Testing</br>
-![gambar testing](img/no8_2.PNG)
+![gambar testing](img/no8_2.png)
 
 **9. Mengaktifkan mod rewrite agar urlnya menjadi http://semeruyyy.pw/home.**
 - Pada **Probolinggo** jalankan perintah `a2enmod rewrite` untuk mengaktifkan *module rewrite*.</br>
 - Restart apache dengan perintah `service apache2 restart`</br>
 - Pindah ke directory `/var/www/semerud01.pw` dan buat file **.htaccess** dengan isi file</br>
-![gambar no9](img/no9.PNG)
+![gambar no9](img/no9.png)
 - Pindah ke directory `/etc/apache2/sites-available` kemudian buka file **semerud01.pw** menjadi seperti</br>
-![gambar no9_1](img/no9_1.PNG)
+![gambar no9_1](img/no9_1.png)
 - Restart apache dengan perintah `service apache2 restart`</br>
 - Akses http://semeruyyy.pw/home</br>
-![gambar no9_2](img/no9_2.PNG)
+![gambar no9_2](img/no9_2.png)
 
 **10. Web http://penanjakan.semeruyyy.pw akan digunakan untuk menyimpan assets file yang memiliki DocumentRoot pada /var/www/penanjakan.semeruyyy.pw dan memiliki struktur folder sebagai berikut:** </br>
 /var/www/penanjakan.semeruyyy.pw
@@ -153,19 +151,19 @@ zone "semerud01.pw" {
 - /errors
 
 Saat mengakses http://penanjakan.semeruyyy.pw ditampilkan sebagai berikut</br>
-![gambar no10_1](img/no10_1.PNG)
+![gambar no10_1](img/no10_1.png)
 Kemudian menuju folder `/public/`, terdapat folder di dalamnya, yaitu</br>
-![gambar no10_2](img/no10_2.PNG)
+![gambar no10_2](img/no10_2.png)
 Sehingga sudah sesuai dengan struktur folder yang diinginkan.</br>
 
 **11. Pada folder /public dibolehkan directory listing namun untuk folder yang berada di dalamnya tidak dibolehkan.**
 - Pindah ke directory `/etc/apache2/sites-available` kemudian buka file **penanjakan.semerud01.pw** dan tambahkan</br>
-![gambar no11](img/no11.PNG)
+![gambar no11](img/no11.png)
 - Restart apache dengan perintah `service apache2 restart`</br>
 - Testing</br>
-![gambar no11_1](img/no11_1.PNG)
-![gambar no11_2](img/no11_2.PNG)
-![gambar no11_3](img/no11_3.PNG)
+![gambar no11_1](img/no11_1.png)
+![gambar no11_2](img/no11_2.png)
+![gambar no11_3](img/no11_3.png)
 
 **12. Untuk mengatasi HTTP Error code 404, disediakan file 404.html pada folder /errors untuk mengganti error default 404 dari Apache.**
 - Lakukan perintah `nano /etc/apache2/sites-available/penanjakan.semerud01.pw` </br>
@@ -177,10 +175,10 @@ Sehingga sudah sesuai dengan struktur folder yang diinginkan.</br>
 
 **13. Untuk mengakses file assets javascript awalnya harus menggunakan url http://penanjakan.semeruyyy.pw/public/javascripts. Karena terlalu panjang maka dibuatkan konfigurasi virtual host agar ketika mengakses file assets menjadi http://penanjakan.semeruyyy.pw/js.**
 - Pindah ke directory `/etc/apache2/sites-available` kemudian buka file **penanjakan.semerud01.pw** dan tambahkan</br>
-![gambar no13_1](img/no13_1.PNG)
+![gambar no13_1](img/no13_1.png)
 - Restart apache dengan perintah `service apache2 restart`</br>
 - Testing</br>
-![gambar testing](img/no13.PNG)
+![gambar testing](img/no13.png)
 
 **14. Sedangkan web http://naik.gunung.semeruyyy.pw sudah bisa diakses hanya dengan menggunakan port 8888. DocumentRoot web berada pada /var/www/naik.gunung.semeruyyy.pw.**
 - Lakukan perintah `nano /etc/apache2/sites-available/naik.gunung.semerud01.pw` edit sesuai gambar dibawah ini</br>
